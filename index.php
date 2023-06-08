@@ -13,8 +13,8 @@
 </head>
 <body>
 
-    <div class="form-container">
-        <form method="get">
+    <div class="form-container" action="index.php">
+        <form method="get" >
             <div class="mb-3">
                 <label for="password-length" class="form-label">Da quanti caratteri preferisci la tua password?</label>
                 <input type="" class="form-control" id="password-length" aria-describedby="emailHelp">
@@ -25,7 +25,7 @@
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            
+            <a href="index.php" class="btn btn-secondary">Reset</a>
         </form>
     </div>
     
