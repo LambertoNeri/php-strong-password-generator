@@ -20,10 +20,6 @@
                 <input type="" class="form-control" id="password-length" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">inserisci numero</div>
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="index.php" class="btn btn-secondary">Reset</a>
         </form>
