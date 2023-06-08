@@ -1,4 +1,6 @@
 <?php
+    var_dump($_GET);
+
     $password_length = $GET['password-length'] ?? '';
 
 
@@ -10,4 +12,4 @@
             $is_email_valid = false;
             $message = 'Campo non valido, inserisci solo numeri';
         }
-    }
+    };
