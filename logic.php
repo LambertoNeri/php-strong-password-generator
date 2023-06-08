@@ -4,12 +4,8 @@ $chars_numbers = $_GET['chars-numbers'] ?? false;
 $chars_letters = $_GET['chars-letters'] ?? false;
 $chars_symbols = $_GET['chars-symbols'] ?? false;
 
-var_dump($password);
-var_dump($chars_numbers == 1);
-
-
 if ($password) {
-	// verificare che $email contenga @ e il .
+
 	if (is_numeric($password)) {
 		$is_password_valid = true;
 		$message = 'La password di' . ' ' . $password . ' ' . 'caratteri è stata generata' ;
