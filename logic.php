@@ -3,7 +3,6 @@
 
 
     if ($password_length) {
-        // verificare che $email contenga @ e il .
         if (is_numeric($password_length)) {
             $is_password_valid = true;
             $message = 'Ecco la tua password!';
