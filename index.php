@@ -20,8 +20,10 @@
                 <input type="" class="form-control" id="password-length" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">inserisci numero</div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="index.php" class="btn btn-secondary">Reset</a>
+            <div class="buttons d-flex justify-content-center gap-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="index.php" class="btn btn-secondary">Reset</a>
+            </div>
         </form>
     </div>
     
