@@ -12,12 +12,17 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"
 		defer></script>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div class="container"><?php
-		if ($password) { ?>
+		if (is_numeric($password)) { ?>
 			<div class="alert alert-<?= $is_password_valid ? 'success' : 'danger' ?>" role="alert">
 				<?= $message ?>
+			</div><?php
+		} else { ?>
+			<div class="alert alert-danger" role="alert">
+				Devi Inserire un numero!!!
 			</div><?php
 		} ?>
 
@@ -51,35 +56,33 @@
 				</label>
 			</div>
 		</form>
-
-		<div class="password-generator">
-			<?php
-				if (is_numeric($password) && $chars_symbols == '1' && $chars_numbers == '1' && $chars_letters == '1') {
-					?> <span>La tua password è <span style="color: red"><?php echo random_password_all($password)?></span> </span> <?php
-				}
-				else if(is_numeric($password) && $chars_symbols == '1' && $chars_numbers == '1') {
-					?> <span>La tua password è <span style="color: red"><?php echo random_password_symbols_and_numbers($password)?></span> </span> <?php
-				}
-				else  if(is_numeric($password) && $chars_numbers == '1' && $chars_letters == '1') {
-					?> <span>La tua password è <span style="color: red"><?php echo random_password_numbers_and_letters($password)?></span> </span> <?php
-				}
-				else  if(is_numeric($password) && $chars_symbols == '1' && $chars_letters == '1') {
-					?> <span>La tua password è <span style="color: red"><?php echo random_password_symbols_and_letters($password)?></span> </span> <?php
-				}
-				else if(is_numeric($password) && $chars_numbers == '1') {
-					?> <span>La tua password è <span style="color: red"><?php echo random_password_numbers($password)?></span> </span> <?php
-				}
-				else if(is_numeric($password) && $chars_letters == '1') {
-					?> <span>La tua password è <span style="color: red"><?php echo random_password_letters($password)?></span> </span> <?php
-				}
-				else if(is_numeric($password) && $chars_symbols == '1') {
-					?> <span>La tua password è <span style="color: red"><?php echo random_password_symbols($password)?></span> </span> <?php
-				}
-				
-				
-				
-			?>
-		</div>
+		<?php if (is_numeric($password) && ($chars_numbers == 1 Or $chars_letters == 1 Or $chars_symbols == 1 )) { ?>
+			<div class="password-generator">
+				<?php
+					if (is_numeric($password) && $chars_symbols == '1' && $chars_numbers == '1' && $chars_letters == '1') {
+						?> <span>La tua password è : </span><span style="color: red"><?php echo random_password_all($password)?></span> <?php
+					}
+					else if(is_numeric($password) && $chars_symbols == '1' && $chars_numbers == '1') {
+						?> <span>La tua password è : </span><span style="color: red"><?php echo random_password_symbols_and_numbers($password)?></span> <?php
+					}
+					else  if(is_numeric($password) && $chars_numbers == '1' && $chars_letters == '1') {
+						?> <span>La tua password è : </span><span style="color: red"><?php echo random_password_numbers_and_letters($password)?></span> <?php
+					}
+					else  if(is_numeric($password) && $chars_symbols == '1' && $chars_letters == '1') {
+						?> <span>La tua password è : </span><span style="color: red"><?php echo random_password_symbols_and_letters($password)?></span> <?php
+					}
+					else if(is_numeric($password) && $chars_numbers == '1') {
+						?> <span>La tua password è : </span><span style="color: red"><?php echo random_password_numbers($password)?></span> <?php
+					}
+					else if(is_numeric($password) && $chars_letters == '1') {
+						?> <span>La tua password è : </span><span style="color: red"><?php echo random_password_letters($password)?></span> <?php
+					}
+					else if(is_numeric($password) && $chars_symbols == '1') {
+						?> <span>La tua password è : </span><span style="color: red"><?php echo random_password_symbols($password)?></span> <?php
+					} 
+				?>
+			</div> <?php
+		} ?>	
 	</div>
 </body>
 </html>

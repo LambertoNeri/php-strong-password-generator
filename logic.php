@@ -4,14 +4,25 @@ $chars_numbers = $_GET['chars-numbers'] ?? false;
 $chars_letters = $_GET['chars-letters'] ?? false;
 $chars_symbols = $_GET['chars-symbols'] ?? false;
 
+var_dump($password);
+
 if ($password) {
 
-	if (is_numeric($password)) {
+	if (is_numeric($password) && ($chars_numbers == 1 Or $chars_letters == 1 Or $chars_symbols == 1 )) {
 		$is_password_valid = true;
 		$message = 'La password di' . ' ' . $password . ' ' . 'caratteri è stata generata' ;
-	} else {
+	} else if ($chars_numbers == 0 && $chars_letters == 0 && $chars_symbols == 0 ) {
 		$is_password_valid = false;
-		$message = 'Email non valida. Inserirne un\'altra';
+		$message = 'Devi selezionare almeno un checkbox';
+	} else if (is_numeric($password)) {
+		$is_password_valid = false;
+		$message = 'Perfavore usa solo numeri';
+	} else if ($password == '' && ($chars_numbers == 1 Or $chars_letters == 1 Or $chars_symbols == 1 ) ) {
+		$is_password_valid = false;
+		$message = 'Inserire almeno un numero in "Lunghezza Password"';
+	} else if ($password == false) {
+		$is_password_valid = false;
+		$message = 'Inserire almeno un numero in "Lunghezza Password"';
 	}
 };
 
