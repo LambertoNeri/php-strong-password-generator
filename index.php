@@ -13,6 +13,13 @@
 </head>
 <body>
 
+    <div class="container"><?php
+		if ($password_length) { ?>
+			<div class="alert alert-<?= $is_password_valid ? 'success' : 'danger' ?>" role="alert">
+				<?= $message ?>
+			</div><?php
+		} ?>
+
     <div class="form-container" action="index.php">
         <form method="get" >
             <div class="mb-3">
