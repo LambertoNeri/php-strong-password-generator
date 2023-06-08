@@ -20,7 +20,7 @@
 			</div><?php
 		} ?>
 
-    <div class="form-container" action="index.php">
+    <div class="form-container">
         <form method="get" >
             <div class="mb-3">
                 <label for="password-length" class="form-label">Da quanti caratteri preferisci la tua password?</label>
@@ -29,7 +29,7 @@
             </div>
             <div class="buttons d-flex justify-content-center gap-4">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="index.php" class="btn btn-secondary">Reset</a>
+                <a href="/php-strong-password-generator" class="btn btn-secondary">Reset</a>
             </div>
         </form>
     </div>
