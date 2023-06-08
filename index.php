@@ -1,41 +1,85 @@
-<?php include_once __DIR__  . '/logic.php' ?>
+<?php include_once __DIR__ . '/logic.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Iscrizione newsletter</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"
+		defer></script>
 </head>
 <body>
-
-    <div class="container"><?php
-		if ($password_length) { ?>
+	<div class="container"><?php
+		if ($password) { ?>
 			<div class="alert alert-<?= $is_password_valid ? 'success' : 'danger' ?>" role="alert">
 				<?= $message ?>
 			</div><?php
 		} ?>
 
-    <div class="form-container">
-        <form method="get" >
-            <div class="mb-3">
-                <label for="password-length" class="form-label">Da quanti caratteri preferisci la tua password?</label>
-                <input type="" class="form-control" id="password-length" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">inserisci numero</div>
-            </div>
-            <div class="buttons d-flex justify-content-center gap-4">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="/php-strong-password-generator" class="btn btn-secondary">Reset</a>
-            </div>
-        </form>
-    </div>
-    
+		<h1>Generatore di Password Randomica</h1>
+		<form>
+			<div class="mb-3">
+			  <label for="email" class="form-label">Lunghezza Password </label>
+			  <input type="text" class="form-control" id="password" name="password">
+			</div>
+			<button type="submit" class="btn btn-primary">Genera</button>
+			<a href="/classe96-0870-controllo-mail" class="btn btn-secondary">Resetta</a>
 
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="lettere" name="chars-letters" value="1">
+				<label class="form-check-label" for="lettere">
+					Lettere
+				</label>
+			</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="numeri" name="chars-numbers" value="1">
+				<label class="form-check-label" for="numeri"> 
+					Numeri
+				</label>
+			</div>
+
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="simboli" name="chars-symbols" value="1">
+				<label class="form-check-label" for="simboli">
+					Simboli
+				</label>
+			</div>
+		</form>
+
+		<div class="password-generator">
+			<?php
+				if (is_numeric($password) && $chars_symbols == '1' && $chars_numbers == '1' && $chars_letters == '1') {
+					?> <span>La tua password è <span style="color: red"><?php echo random_password_all($password)?></span> </span> <?php
+				}
+				else if(is_numeric($password) && $chars_symbols == '1' && $chars_numbers == '1') {
+					?> <span>La tua password è <span style="color: red"><?php echo random_password_symbols_and_numbers($password)?></span> </span> <?php
+				}
+				else  if(is_numeric($password) && $chars_numbers == '1' && $chars_letters == '1') {
+					?> <span>La tua password è <span style="color: red"><?php echo random_password_numbers_and_letters($password)?></span> </span> <?php
+				}
+				else  if(is_numeric($password) && $chars_symbols == '1' && $chars_letters == '1') {
+					?> <span>La tua password è <span style="color: red"><?php echo random_password_symbols_and_letters($password)?></span> </span> <?php
+				}
+				else if(is_numeric($password) && $chars_numbers == '1') {
+					?> <span>La tua password è <span style="color: red"><?php echo random_password_numbers($password)?></span> </span> <?php
+				}
+				else if(is_numeric($password) && $chars_letters == '1') {
+					?> <span>La tua password è <span style="color: red"><?php echo random_password_letters($password)?></span> </span> <?php
+				}
+				else if(is_numeric($password) && $chars_symbols == '1') {
+					?> <span>La tua password è <span style="color: red"><?php echo random_password_symbols($password)?></span> </span> <?php
+				}
+				
+				
+				
+			?>
+		</div>
+	</div>
 </body>
 </html>
